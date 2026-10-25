@@ -4,7 +4,13 @@ Upload one or more CSV files and talk to your data in plain English. The app ans
 writes insights, draws charts, shows the SQL or pandas it ran, flags anomalies with an
 explanation, forecasts, and remembers the conversation, so follow-ups like *"now show that by
 quarter"* or *"generate SQL for this"* just work.
+## 🚀 Live Demo
 
+**Live App:** [AI Data Analyst](https://ai-data-analyst-923mat7rqgrpjrr4byhegd.streamlit.app/)
+
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ai-data-analyst-923mat7rqgrpjrr4byhegd.streamlit.app/)
+
+Try uploading a CSV file and asking questions in natural language to generate insights, visualizations, and data quality reports.
 Built for the Digital Back Office **AI Engineer assignment**.
 
 **Demo video (28 s):** [`docs/demo.mp4`](docs/demo.mp4)  ·  **Architecture:** [`docs/architecture.png`](docs/architecture.png)
