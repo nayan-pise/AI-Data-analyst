@@ -1,0 +1,36 @@
+flowchart TB
+    U([User]) --> UI
+
+    subgraph APP[" Presentation "]
+        UI["Streamlit UI<br/>chat, suggestions, dashboard, report export<br/>optional password gate"]
+        UP["Upload and validate<br/>CSV/TSV, size limit, encoding and delimiter detection<br/>type coercion, snake_case columns"]
+    end
+
+    subgraph BRAIN[" Reasoning "]
+        RT["Analyst router + ConversationMemory"]
+        LLM["LLM agent<br/>Claude tool-calling loop, streaming<br/>prompt caching, self-correction"]
+        OFF["Offline engine<br/>intent to schema-aware SQL<br/>no API key needed"]
+    end
+
+    subgraph TOOLS[" Tool layer "]
+        TL["run_sql, run_pandas, create_chart<br/>detect_anomalies, data_quality_report<br/>forecast, describe_table"]
+        GR["Guardrails<br/>SELECT-only SQL, no file access<br/>AST-sandboxed pandas, row and time limits"]
+        AN["Analytics<br/>robust z-score and IQR anomalies<br/>trend and seasonality forecast, Plotly charts"]
+    end
+
+    DS[("DataStore<br/>DuckDB in-memory + pandas<br/>profiles, join detection, query cache")]
+    API["Anthropic Messages API"]
+    OBS["Observability<br/>JSON logs, latency and token metrics"]
+
+    UI --> UP --> DS
+    UI --> RT
+    RT -->|API key present| LLM
+    RT -->|no key or LLM error| OFF
+    LLM <-->|HTTPS stream| API
+    LLM --> TL
+    OFF --> TL
+    TL --> GR --> DS
+    TL --> AN --> DS
+    TL -.->|answer, charts, SQL| UI
+    RT -.-> OBS
+    TL -.-> OBS

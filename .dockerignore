@@ -1,0 +1,9 @@
+.git
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+logs
+.env
+docs/demo
+evals/results_*.md

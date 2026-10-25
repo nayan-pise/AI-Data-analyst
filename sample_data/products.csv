@@ -1,0 +1,13 @@
+product_id,product_name,category,unit_price,unit_cost
+P001,Alpha Laptop,Computers,1200,840
+P002,Beta Notebook,Computers,800,560
+P003,Gamma Tablet,Computers,450,310
+P004,Delta Monitor,Displays,300,205
+P005,Epsilon Headset,Audio,120,70
+P006,Zeta Keyboard,Accessories,80,42
+P007,Eta Mouse,Accessories,40,18
+P008,Theta Webcam,Accessories,90,50
+P009,Iota Dock,Accessories,150,95
+P010,Kappa Cable,Accessories,15,5
+P011,Lambda Lamp,Office,25,11
+P012,Mu Speaker,Audio,110,72

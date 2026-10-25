@@ -1,0 +1,14 @@
+services:
+  analyst:
+    build: .
+    image: ai-data-analyst:latest
+    ports:
+      - "8501:8501"
+    environment:
+      # Optional: without a key the app runs on the built-in offline engine.
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      ANALYST_MODEL: ${ANALYST_MODEL:-claude-sonnet-5-5}
+      APP_PASSWORD: ${APP_PASSWORD:-}
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
